@@ -1,0 +1,5 @@
+module [1:0]
+  expression_statement [1:0]
+    assignment [1:0]
+      left: identifier [1:0]
+      right: integer [1:4]
