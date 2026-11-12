@@ -1,0 +1,8 @@
+$ diff <(python jelajah.py kecil.py) <(python jelajah_cursor.py kecil.py)
+(tidak ada beda, 5 baris)
+$ diff <(python jelajah.py potongan/p3_kelas.py) <(python jelajah_cursor.py potongan/p3_kelas.py)
+(tidak ada beda, 16 baris)
+$ diff <(python jelajah.py sampel/fa.py) <(python jelajah_cursor.py sampel/fa.py)
+(tidak ada beda, 2321 baris)
+$ diff <(python jelajah.py potongan/p1_rusak_kurung.py) <(python jelajah_cursor.py potongan/p1_rusak_kurung.py)
+(tidak ada beda, 15 baris)
