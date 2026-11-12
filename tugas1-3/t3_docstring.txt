@@ -1,0 +1,8 @@
+$ python q.py contoh.py docstring.scm
+@fungsi  baris 10: tambah
+@fungsi  baris 25: __init__
+@doc  baris 11: """Menjumlahkan dua angka."""
+@doc  baris 26: "Docstring kutip satu."
+
+$ python q.py potongan/p6_bukan_docstring.py docstring.scm   # harus kosong
+(kosong)
