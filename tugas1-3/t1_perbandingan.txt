@@ -1,0 +1,36 @@
+Perbandingan perkiraan (t1_perkiraan.txt) dengan output asli (t1_output.txt).
+
+1. p1_fungsi.py  : cocok seluruhnya. Operator "+" memang punya field
+   (operator) tapi tidak tercetak karena node-nya anonim.
+2. p2_ifelse.py  : cocok seluruhnya. Yang tadinya ragu ternyata benar:
+   else_clause ada di field alternative, isinya di field body.
+3. p3_kelas.py   : cocok seluruhnya. self hanya identifier biasa, tidak ada
+   node khusus, dan "self.nim" jadi node attribute (object + attribute).
+
+Node bernama vs anonim (output langkah 5, potongan fungsi):
+  anak function_definition : def (anonim), identifier, parameters, : (anonim), block
+  anak parameters          : ( (anonim), identifier, ) (anonim)
+  anonim lain yang tersembunyi: "=" di assignment, "+" di binary_operator,
+  "return" di return_statement, "class" dan ":" di class_definition,
+  "if", "else", ">=" di if_statement.
+
+children vs named_children, contoh dari def sapa(nama): ...
+  function_definition.children       -> def, identifier, parameters, :, block (5)
+  function_definition.named_children -> identifier, parameters, block     (3)
+  children berisi semua token termasuk kata kunci dan tanda baca (CST),
+  named_children hanya node dari rule bernama, yaitu yang tampil di S-expression.
+
+Kode rusak (langkah 6):
+  p1_rusak_titikdua.py (hapus ":" setelah def sapa(nama))
+    seluruh fungsi jadi satu node ERROR di bawah module; function_definition hilang.
+  p1_rusak_kurung.py (hapus ")")
+    parser membaca "nama: pesan = "Halo " + nama" sebagai typed_default_parameter
+    (parameter bertipe pesan dengan nilai default), lalu sisanya masuk ERROR.
+    Error recovery memilih tafsiran yang paling murah, belum tentu yang dimaksud.
+  p2_rusak_titikdua.py (hapus ":" setelah if)
+    if_statement tetap ada, ERROR muncul di dalam condition, dan kata "else" ditelan
+    node ERROR kosong. Akibatnya consequence berisi status = "ulang", padahal itu
+    body else. Pohonnya terlihat wajar tapi maknanya salah, jadi tool harus cek
+    has_error dulu sebelum percaya isi pohon.
+  Pada percobaan ini (termasuk 10 variasi lain) tree-sitter-python selalu memakai
+  ERROR, tidak pernah MISSING.

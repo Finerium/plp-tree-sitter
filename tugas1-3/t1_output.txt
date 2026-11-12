@@ -1,0 +1,203 @@
+===== potongan/p1_fungsi.py =====
+def sapa(nama):
+    pesan = "Halo " + nama
+    return pesan
+--- output ---
+(module (function_definition name: (identifier) parameters: (parameters (identifier)) body: (block (expression_statement (assignment left: (identifier) right: (binary_operator left: (string (string_start) (string_content) (string_end)) right: (identifier)))) (return_statement (identifier)))))
+(module
+  (function_definition
+    name: (identifier)
+    parameters: (parameters
+      (identifier))
+    body: (block
+      (expression_statement
+        (assignment
+          left: (identifier)
+          right: (binary_operator
+            left: (string
+              (string_start)
+              (string_content)
+              (string_end))
+            right: (identifier))))
+      (return_statement
+        (identifier)))))
+
+anak statement pertama:
+  def anonim
+  identifier bernama
+  parameters bernama
+  : anonim
+  block bernama
+anak node parameters:
+  ( anonim
+  identifier bernama
+  ) anonim
+has_error: False
+
+===== potongan/p2_ifelse.py =====
+if nilai >= 75:
+    status = "lulus"
+else:
+    status = "ulang"
+--- output ---
+(module (if_statement condition: (comparison_operator (identifier) (integer)) consequence: (block (expression_statement (assignment left: (identifier) right: (string (string_start) (string_content) (string_end))))) alternative: (else_clause body: (block (expression_statement (assignment left: (identifier) right: (string (string_start) (string_content) (string_end))))))))
+(module
+  (if_statement
+    condition: (comparison_operator
+      (identifier)
+      (integer))
+    consequence: (block
+      (expression_statement
+        (assignment
+          left: (identifier)
+          right: (string
+            (string_start)
+            (string_content)
+            (string_end)))))
+    alternative: (else_clause
+      body: (block
+        (expression_statement
+          (assignment
+            left: (identifier)
+            right: (string
+              (string_start)
+              (string_content)
+              (string_end))))))))
+
+anak statement pertama:
+  if anonim
+  comparison_operator bernama
+  : anonim
+  block bernama
+  else_clause bernama
+has_error: False
+
+===== potongan/p3_kelas.py =====
+class Mahasiswa:
+    def __init__(self, nim):
+        self.nim = nim
+--- output ---
+(module (class_definition name: (identifier) body: (block (function_definition name: (identifier) parameters: (parameters (identifier) (identifier)) body: (block (expression_statement (assignment left: (attribute object: (identifier) attribute: (identifier)) right: (identifier))))))))
+(module
+  (class_definition
+    name: (identifier)
+    body: (block
+      (function_definition
+        name: (identifier)
+        parameters: (parameters
+          (identifier)
+          (identifier))
+        body: (block
+          (expression_statement
+            (assignment
+              left: (attribute
+                object: (identifier)
+                attribute: (identifier))
+              right: (identifier))))))))
+
+anak statement pertama:
+  class anonim
+  identifier bernama
+  : anonim
+  block bernama
+has_error: False
+
+===== potongan/p1_rusak_titikdua.py =====
+def sapa(nama)
+    pesan = "Halo " + nama
+    return pesan
+--- output ---
+(module (ERROR (identifier) (parameters (identifier)) (identifier) (expression_statement (binary_operator left: (string (string_start) (string_content) (string_end)) right: (identifier))) (return_statement (identifier))))
+(module
+  (ERROR
+    (identifier)
+    (parameters
+      (identifier))
+    (identifier)
+    (expression_statement
+      (binary_operator
+        left: (string
+          (string_start)
+          (string_content)
+          (string_end))
+        right: (identifier)))
+    (return_statement
+      (identifier))))
+
+anak statement pertama:
+  def anonim
+  identifier bernama
+  parameters bernama
+  identifier bernama
+  = anonim
+  expression_statement bernama
+  return_statement bernama
+has_error: True
+
+===== potongan/p1_rusak_kurung.py =====
+def sapa(nama:
+    pesan = "Halo " + nama
+    return pesan
+--- output ---
+(module (ERROR (identifier) (typed_default_parameter name: (identifier) type: (type (identifier)) value: (binary_operator left: (string (string_start) (string_content) (string_end)) right: (identifier))) (identifier) (identifier)))
+(module
+  (ERROR
+    (identifier)
+    (typed_default_parameter
+      name: (identifier)
+      type: (type
+        (identifier))
+      value: (binary_operator
+        left: (string
+          (string_start)
+          (string_content)
+          (string_end))
+        right: (identifier)))
+    (identifier)
+    (identifier)))
+
+anak statement pertama:
+  def anonim
+  identifier bernama
+  ( anonim
+  typed_default_parameter bernama
+  identifier bernama
+  identifier bernama
+has_error: True
+
+===== potongan/p2_rusak_titikdua.py =====
+if nilai >= 75
+    status = "lulus"
+else:
+    status = "ulang"
+--- output ---
+(module (if_statement condition: (comparison_operator (identifier) (ERROR (integer) (identifier)) (string (string_start) (string_content) (string_end))) (ERROR) consequence: (block (expression_statement (assignment left: (identifier) right: (string (string_start) (string_content) (string_end)))))))
+(module
+  (if_statement
+    condition: (comparison_operator
+      (identifier)
+      (ERROR
+        (integer)
+        (identifier))
+      (string
+        (string_start)
+        (string_content)
+        (string_end)))
+    (ERROR)
+    consequence: (block
+      (expression_statement
+        (assignment
+          left: (identifier)
+          right: (string
+            (string_start)
+            (string_content)
+            (string_end)))))))
+
+anak statement pertama:
+  if anonim
+  comparison_operator bernama
+  ERROR bernama
+  : anonim
+  block bernama
+has_error: True
+
