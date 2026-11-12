@@ -1,1 +1,2 @@
-status in ("open", "pending", "hold") and title contains "invoice"
+status in ("open", "pending") and title contains "invoice"
+  and (priority >= 2 or owner = "budi") and not archived = true

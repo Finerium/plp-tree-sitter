@@ -1,0 +1,3 @@
+$ tree-sitter highlight contoh.filter | cat -v   # ^[[38;5;28m = warna 28 (string)
+status in (^[[38;5;28m"open"^[[0m, ^[[38;5;28m"pending"^[[0m) and title contains ^[[38;5;28m"invoice"^[[0m
+  and (priority >= 2 or owner = ^[[38;5;28m"budi"^[[0m) and not archived = true
