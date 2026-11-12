@@ -1,0 +1,23 @@
+{
+  "$schema": "https://tree-sitter.github.io/tree-sitter/assets/schemas/config.schema.json",
+  "grammars": [
+    {
+      "name": "filter",
+      "camelcase": "Filter",
+      "title": "Filter",
+      "scope": "source.filter",
+      "file-types": ["filter"],
+      "injection-regex": "^filter$",
+      "class-name": "TreeSitterFilter",
+      "highlights": "queries/highlights.scm"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "DSL filter untuk kotak pencarian halaman admin (Tugas 4 PLP)",
+    "authors": [{ "name": "Ghaisan Khoirul Badruzaman" }],
+    "links": { "repository": "https://github.com/Finerium/plp-tree-sitter" }
+  },
+  "bindings": { "c": true, "go": false, "java": false, "node": false, "python": true, "rust": false, "swift": false, "zig": false }
+}

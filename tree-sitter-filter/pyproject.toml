@@ -1,0 +1,29 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = [ "setuptools>=62.4.0", "wheel" ]
+
+[project]
+authors = [ { email = "PARSER_AUTHOR_EMAIL", name = "Ghaisan Khoirul Badruzaman" } ]
+classifiers = [
+  "Intended Audience :: Developers",
+  "Topic :: Software Development :: Compilers",
+  "Topic :: Text Processing :: Linguistic",
+  "Typing :: Typed",
+]
+description = "DSL filter untuk kotak pencarian halaman admin (Tugas 4 PLP)"
+keywords = [ "incremental", "parsing", "tree-sitter", "filter" ]
+license.text = "MIT"
+name = "tree-sitter-filter"
+readme = "README.md"
+requires-python = ">=3.10"
+version = "0.1.0"
+
+[project.urls]
+Homepage = "https://github.com/Finerium/plp-tree-sitter"
+
+[project.optional-dependencies]
+core = [ "tree-sitter~=0.24" ]
+
+[tool.cibuildwheel]
+build = "cp310-*"
+build-frontend = "build"
