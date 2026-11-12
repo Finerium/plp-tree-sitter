@@ -1,0 +1,48 @@
+Perkiraan pohon SEBELUM menjalankan t1.py (Tugas 1 langkah 4).
+Ditulis dari pemahaman grammar tree-sitter-python, belum dicek ke output.
+Bagian yang masih ragu ditandai "ragu".
+
+== potongan/p1_fungsi.py ==
+(module
+  (function_definition
+    name: (identifier)
+    parameters: (parameters (identifier))
+    body: (block
+      (expression_statement
+        (assignment
+          left: (identifier)
+          right: (binary_operator
+            left: (string (string_start) (string_content) (string_end))
+            right: (identifier))))
+      (return_statement (identifier)))))
+ragu: apakah operator "+" punya field yang ikut tercetak (perkiraan: tidak, karena anonim).
+
+== potongan/p2_ifelse.py ==
+(module
+  (if_statement
+    condition: (comparison_operator (identifier) (integer))
+    consequence: (block
+      (expression_statement
+        (assignment left: (identifier)
+                    right: (string (string_start) (string_content) (string_end)))))
+    alternative: (else_clause
+      body: (block
+        (expression_statement
+          (assignment left: (identifier)
+                      right: (string (string_start) (string_content) (string_end))))))))
+ragu: nama field untuk else_clause (alternative?) dan isi else_clause (body?).
+
+== potongan/p3_kelas.py ==
+(module
+  (class_definition
+    name: (identifier)
+    body: (block
+      (function_definition
+        name: (identifier)
+        parameters: (parameters (identifier) (identifier))
+        body: (block
+          (expression_statement
+            (assignment
+              left: (attribute object: (identifier) attribute: (identifier))
+              right: (identifier))))))))
+ragu: apakah self diperlakukan khusus (perkiraan: tidak, identifier biasa).
