@@ -1,0 +1,7 @@
+$ tree-sitter generate   # grammar.js versi materi: module.exports = grammar(...)
+file://./grammar.js:1
+module.exports = grammar({
+^
+
+ReferenceError: module is not defined in ES module scope
+This file is being treated as an ES module because it has a '.js' file extension and './package.json' contains "type": "module". To treat it as a CommonJS script, rename it to use the '.cjs' file extension.

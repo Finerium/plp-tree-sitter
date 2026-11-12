@@ -1,17 +1,10 @@
-/**
- * @file DSL filter untuk kotak pencarian halaman admin (Tugas 4 PLP)
- * @author Ghaisan Khoirul Badruzaman
- * @license MIT
- */
-
-/// <reference types="tree-sitter-cli/dsl" />
-// @ts-check
-
 export default grammar({
-  name: "filter",
-
+  name: 'filter',
+  extras: $ => [/\s/],
   rules: {
-    // TODO: add the actual grammar rules
-    source_file: $ => "hello"
+    query: $ => $.comparison,
+    comparison: $ => seq($.identifier, '=', $.string),
+    identifier: $ => /[a-zA-Z_][a-zA-Z0-9_.]*/,
+    string: $ => /"[^"]*"/,
   }
 });
