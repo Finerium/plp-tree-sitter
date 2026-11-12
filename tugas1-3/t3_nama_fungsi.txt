@@ -1,0 +1,6 @@
+@nama  baris 10: tambah
+@nama  baris 15: sapa
+@nama  baris 20: kosong
+@nama  baris 25: __init__
+@nama  baris 29: cetak
+@nama  baris 33: dalam

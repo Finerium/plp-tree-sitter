@@ -1,0 +1,23 @@
+Hitungan manual contoh.py, ditulis SEBELUM query dijalankan.
+
+Fungsi dan jumlah parameter (6 fungsi):
+  tambah   2  (a, b)
+  sapa     4  (nama, salam, *args, **kwargs)
+  kosong   0
+  __init__ 2  (self, nama)
+  cetak    2  (self, tebal; tanda * hanya pemisah keyword-only, bukan parameter)
+  dalam    1  (x)
+
+Pemanggilan print(...) bawaan (4):
+  baris 16 print(salam, nama)
+  baris 30 print(self.nama)
+  baris 31 print("tebal" if tebal else "biasa")
+  baris 39 print("selesai")
+  Tidak dihitung: log.print (method, bukan print bawaan), print di dalam string
+  baris 41, dan print di komentar baris 42. grep -n "print(" akan menghitung 7.
+
+Modul yang di-import (7):
+  os, sys, json, pathlib, collections, . (relatif), os.path
+
+Docstring fungsi (2): tambah, __init__ (kutip satu juga docstring).
+  Docstring modul baris 1 bukan milik fungsi, tidak dihitung.
