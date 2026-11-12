@@ -65,3 +65,25 @@ a = 1 or b = 2 and c = 3
       (comparison
         (identifier)
         (number)))))
+
+==================
+kurung mengalahkan prioritas
+==================
+
+(a = 1 or b = 2) and c = 3
+
+---
+
+(query
+  (and_expression
+    (parenthesized
+      (or_expression
+        (comparison
+          (identifier)
+          (number))
+        (comparison
+          (identifier)
+          (number))))
+    (comparison
+      (identifier)
+      (number))))

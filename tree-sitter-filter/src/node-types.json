@@ -18,6 +18,10 @@
         {
           "type": "or_expression",
           "named": true
+        },
+        {
+          "type": "parenthesized",
+          "named": true
         }
       ]
     }
@@ -64,6 +68,37 @@
         {
           "type": "or_expression",
           "named": true
+        },
+        {
+          "type": "parenthesized",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "parenthesized",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "and_expression",
+          "named": true
+        },
+        {
+          "type": "comparison",
+          "named": true
+        },
+        {
+          "type": "or_expression",
+          "named": true
+        },
+        {
+          "type": "parenthesized",
+          "named": true
         }
       ]
     }
@@ -88,12 +123,24 @@
         {
           "type": "or_expression",
           "named": true
+        },
+        {
+          "type": "parenthesized",
+          "named": true
         }
       ]
     }
   },
   {
     "type": "!=",
+    "named": false
+  },
+  {
+    "type": "(",
+    "named": false
+  },
+  {
+    "type": ")",
     "named": false
   },
   {

@@ -21,6 +21,10 @@
         {
           "type": "SYMBOL",
           "name": "or_expression"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "parenthesized"
         }
       ]
     },
@@ -107,6 +111,23 @@
           }
         ]
       }
+    },
+    "parenthesized": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "("
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_expr"
+        },
+        {
+          "type": "STRING",
+          "value": ")"
+        }
+      ]
     },
     "_value": {
       "type": "CHOICE",
