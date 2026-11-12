@@ -87,3 +87,21 @@ kurung mengalahkan prioritas
     (comparison
       (identifier)
       (number))))
+
+==================
+not lebih kuat dari and, nilai boolean
+==================
+
+not archived = true and active = false
+
+---
+
+(query
+  (and_expression
+    (not_expression
+      (comparison
+        (identifier)
+        (boolean)))
+    (comparison
+      (identifier)
+      (boolean))))

@@ -1,0 +1,26 @@
+$ tree-sitter generate
+$ tree-sitter parse contoh.filter
+(query [0, 0] - [1, 0]
+  (not_expression [0, 0] - [0, 19]
+    (comparison [0, 4] - [0, 19]
+      (identifier [0, 4] - [0, 12])
+      (boolean [0, 15] - [0, 19]))))
+$ tree-sitter parse contoh_not_and.filter
+(query [0, 0] - [1, 0]
+  (and_expression [0, 0] - [0, 38]
+    (not_expression [0, 0] - [0, 19]
+      (comparison [0, 4] - [0, 19]
+        (identifier [0, 4] - [0, 12])
+        (boolean [0, 15] - [0, 19])))
+    (comparison [0, 24] - [0, 38]
+      (identifier [0, 24] - [0, 30])
+      (boolean [0, 33] - [0, 38]))))
+$ tree-sitter test
+  dasar:
+      1. ✓ satu perbandingan string
+      2. ✓ operator perbandingan dengan angka
+      3. ✓ and berantai mengelompok ke kiri
+      4. ✓ and lebih kuat dari or
+      5. ✓ kurung mengalahkan prioritas
+      6. ✓ not lebih kuat dari and, nilai boolean
+Total parses: 6; successful parses: 6; failed parses: 0; success percentage: 100.00%; average speed: 6125 bytes/ms
