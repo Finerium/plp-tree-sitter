@@ -1,0 +1,5 @@
+.venv/
+__pycache__/
+# repo open source untuk uji Tugas 6, di-clone ulang lewat perintah di cek/README.md
+cek/repo-uji/
+.DS_Store

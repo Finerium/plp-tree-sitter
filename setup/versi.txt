@@ -1,0 +1,12 @@
+$ tree-sitter --version
+tree-sitter 0.27.2
+$ pip list | grep tree
+tree-sitter            0.26.1
+tree-sitter-javascript 0.25.0
+tree-sitter-python     0.25.0
+$ python --version
+Python 3.14.6
+$ clang --version
+Apple clang version 17.0.0 (clang-1700.6.3.2)
+$ node --version
+v25.6.0
