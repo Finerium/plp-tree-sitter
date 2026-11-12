@@ -1,0 +1,165 @@
+$ npm --version
+11.9.0
+$ python cek.py <npm>/lib   # 110 file .js, ringkasan
+TODO/FIXME: 33, fungsi > 30 baris: 117, file rusak: 1
+npm/lib/base-cmd.js:165: sintaks rusak (ERROR)
+$ sed -n '162,165p' <npm>/lib/base-cmd.js
+      ])].filter(v => v).join('\n')
+    }
+
+    [...warnings, ...(force ? errors : [])].forEach((failure, i) => {
+$ node --check <npm>/lib/base-cmd.js && echo OK
+OK
+
+== output lengkap ==
+npm/lib/base-cmd.js:16: fungsi describeUsage 60 baris
+npm/lib/base-cmd.js:134: fungsi checkDevEngines 55 baris
+npm/lib/base-cmd.js:165: sintaks rusak (ERROR)
+npm/lib/cli/exit-handler.js:68: fungsi #handleProcessExit 48 baris
+npm/lib/cli/update-notifier.js:22: fungsi updateCheck 51 baris
+npm/lib/commands/access.js:73: fungsi exec 44 baris
+npm/lib/commands/adduser.js:15: fungsi exec 33 baris
+npm/lib/commands/audit.js:84: fungsi auditSignatures 35 baris
+npm/lib/commands/cache.js:86: // TODO - eventually...
+npm/lib/commands/cache.js:14: fungsi searchCachePackage 51 baris
+npm/lib/commands/cache.js:129: fungsi clean 36 baris
+npm/lib/commands/cache.js:240: fungsi #npxCache 40 baris
+npm/lib/commands/cache.js:318: fungsi npxInfo 51 baris
+npm/lib/commands/ci.js:32: fungsi exec 96 baris
+npm/lib/commands/completion.js:178: // TODO this was dead code, leaving it in case we find some command we
+npm/lib/commands/completion.js:214: // TODO Ignoring coverage, see 'non EPIPE errors cause failures' test.
+npm/lib/commands/completion.js:73: fungsi exec 97 baris
+npm/lib/commands/completion.js:193: fungsi dumpScript 40 baris
+npm/lib/commands/config.js:116: // TODO: complete with valid values, if possible.
+npm/lib/commands/config.js:98: fungsi completion 37 baris
+npm/lib/commands/config.js:164: fungsi set 32 baris
+npm/lib/commands/config.js:227: fungsi edit 57 baris
+npm/lib/commands/config.js:285: fungsi fix 42 baris
+npm/lib/commands/config.js:328: fungsi list 75 baris
+npm/lib/commands/deprecate.js:36: fungsi exec 48 baris
+npm/lib/commands/diff.js:37: fungsi exec 32 baris
+npm/lib/commands/diff.js:97: fungsi retrieveSpecs 126 baris
+npm/lib/commands/diff.js:224: fungsi convertVersionsToSpecs 34 baris
+npm/lib/commands/diff.js:259: fungsi findVersionsByPackageName 31 baris
+npm/lib/commands/dist-tag.js:85: fungsi add 40 baris
+npm/lib/commands/doctor.js:88: // TODO:
+npm/lib/commands/doctor.js:118: // TODO when we have an in progress indicator that could go here
+npm/lib/commands/doctor.js:327: // TODO display layer should do this
+npm/lib/commands/doctor.js:217: fungsi checkFilesPermission 60 baris
+npm/lib/commands/doctor.js:286: fungsi verifyCachedFiles 31 baris
+npm/lib/commands/edit.js:36: // TODO
+npm/lib/commands/exec.js:41: fungsi callExec 67 baris
+npm/lib/commands/explain.js:20: // TODO
+npm/lib/commands/explain.js:27: fungsi exec 59 baris
+npm/lib/commands/explore.js:17: // TODO
+npm/lib/commands/explore.js:23: fungsi exec 49 baris
+npm/lib/commands/fund.js:37: // TODO
+npm/lib/commands/fund.js:80: // TODO: add !workspacesEnabled option handling to libnpmfund
+npm/lib/commands/fund.js:44: fungsi exec 49 baris
+npm/lib/commands/fund.js:94: fungsi printHuman 59 baris
+npm/lib/commands/fund.js:154: fungsi openFundingUrl 58 baris
+npm/lib/commands/get.js:11: // TODO
+npm/lib/commands/help-search.js:43: fungsi searchFiles 97 baris
+npm/lib/commands/help-search.js:141: fungsi formatResults 52 baris
+npm/lib/commands/help.js:48: fungsi exec 33 baris
+npm/lib/commands/init.js:53: fungsi execWorkspaces 46 baris
+npm/lib/commands/init.js:100: fungsi execCreate 56 baris
+npm/lib/commands/init.js:188: fungsi setWorkspace 31 baris
+npm/lib/commands/install.js:45: fungsi completion 54 baris
+npm/lib/commands/install.js:100: fungsi exec 75 baris
+npm/lib/commands/link.js:166: // TODO: write tests for unmatching version specs, this is hard to test
+npm/lib/commands/link.js:63: fungsi linkInstall 72 baris
+npm/lib/commands/link.js:156: fungsi missingArgsFromTree 32 baris
+npm/lib/commands/login.js:15: fungsi exec 33 baris
+npm/lib/commands/logout.js:14: fungsi exec 34 baris
+npm/lib/commands/ls.js:42: // TODO
+npm/lib/commands/ls.js:300: // TODO there is a LOT of overlap with lib/utils/explain-dep.js here
+npm/lib/commands/ls.js:49: fungsi exec 162 baris
+npm/lib/commands/ls.js:285: fungsi getHumanOutputItem 61 baris
+npm/lib/commands/ls.js:347: fungsi getJsonOutputItem 60 baris
+npm/lib/commands/ls.js:423: fungsi mapEdgesToNodes 31 baris
+npm/lib/commands/ls.js:460: fungsi augmentNodesWithMetadata 49 baris
+npm/lib/commands/ls.js:531: fungsi jsonOutput 31 baris
+npm/lib/commands/org.js:52: fungsi set 34 baris
+npm/lib/commands/org.js:87: fungsi rm 32 baris
+npm/lib/commands/outdated.js:122: // TODO: normalize usage of edges and avoid looping through nodes here
+npm/lib/commands/outdated.js:264: // TODO(BREAKING_CHANGE): this should just return an array. It's a list and
+npm/lib/commands/outdated.js:41: fungsi exec 55 baris
+npm/lib/commands/outdated.js:156: fungsi #getOutdatedInfo 58 baris
+npm/lib/commands/outdated.js:217: fungsi #pretty 32 baris
+npm/lib/commands/owner.js:38: fungsi completion 36 baris
+npm/lib/commands/owner.js:150: fungsi changeOwners 89 baris
+npm/lib/commands/pack.js:25: fungsi exec 49 baris
+npm/lib/commands/pkg.js:68: // TODO(BREAKING_CHANGE): much like other places where we unwrap single
+npm/lib/commands/pkg.js:77: // TODO: https://github.com/npm/cli/issues/5508 a raw mode has been requested similar
+npm/lib/commands/profile.js:201: // FIXME: Work around to not clear everything other than what we're setting
+npm/lib/commands/profile.js:102: fungsi get 58 baris
+npm/lib/commands/profile.js:161: fungsi set 62 baris
+npm/lib/commands/profile.js:224: fungsi enable2fa 134 baris
+npm/lib/commands/publish.js:70: fungsi #publish 147 baris
+npm/lib/commands/publish.js:249: fungsi #getManifest 34 baris
+npm/lib/commands/query.js:85: fungsi execWorkspaces 32 baris
+npm/lib/commands/rebuild.js:20: // TODO
+npm/lib/commands/rebuild.js:34: // TODO when extending ReifyCmd
+npm/lib/commands/rebuild.js:78: // TODO: add tests for a package with missing version
+npm/lib/commands/rebuild.js:27: fungsi exec 35 baris
+npm/lib/commands/run.js:50: fungsi execWorkspaces 36 baris
+npm/lib/commands/run.js:87: fungsi #run 60 baris
+npm/lib/commands/run.js:148: fungsi #list 72 baris
+npm/lib/commands/sbom.js:65: // TODO(BREAKING_CHANGE): all sbom output is in json mode but setting it before
+npm/lib/commands/sbom.js:25: fungsi exec 45 baris
+npm/lib/commands/search.js:26: fungsi exec 42 baris
+npm/lib/commands/set.js:11: // TODO
+npm/lib/commands/shrinkwrap.js:11: fungsi exec 60 baris
+npm/lib/commands/star.js:19: fungsi exec 51 baris
+npm/lib/commands/token.js:71: fungsi list 35 baris
+npm/lib/commands/token.js:107: fungsi rm 44 baris
+npm/lib/commands/token.js:152: fungsi create 90 baris
+npm/lib/commands/uninstall.js:14: // TODO
+npm/lib/commands/uninstall.js:20: fungsi exec 34 baris
+npm/lib/commands/unpublish.js:34: fungsi completion 35 baris
+npm/lib/commands/unpublish.js:70: fungsi exec 100 baris
+npm/lib/commands/update.js:32: // TODO
+npm/lib/commands/view.js:245: // TODO(BREAKING_CHANGE): all unwrapping should be removed. Users should know
+npm/lib/commands/view.js:133: fungsi #getData 70 baris
+npm/lib/commands/view.js:204: fungsi #packageOutput 59 baris
+npm/lib/commands/view.js:264: fungsi #prettyView 112 baris
+npm/lib/npm.js:90: // TODO should we throw here?
+npm/lib/npm.js:88: fungsi #load 115 baris
+npm/lib/npm.js:219: fungsi #exec 39 baris
+npm/lib/utils/auth.js:35: fungsi adduser 36 baris
+npm/lib/utils/auth.js:72: fungsi login 32 baris
+npm/lib/utils/cmd-list.js:142: fungsi deref 31 baris
+npm/lib/utils/display.js:390: // TODO: this could probably be moved to arborist now that display is refactored
+npm/lib/utils/display.js:101: fungsi getJsonBuffer 35 baris
+npm/lib/utils/display.js:211: fungsi load 39 baris
+npm/lib/utils/error-message.js:6: fungsi errorMessage 382 baris
+npm/lib/utils/error-message.js:397: fungsi getError 69 baris
+npm/lib/utils/explain-eresolve.js:10: fungsi explain 35 baris
+npm/lib/utils/format-search-stream.js:94: fungsi write 62 baris
+npm/lib/utils/get-workspaces.js:12: // TODO we need a better error to be bubbled up here if this call fails
+npm/lib/utils/get-workspaces.js:11: fungsi getWorkspaces 42 baris
+npm/lib/utils/installed-deep.js:4: fungsi installedDeep 40 baris
+npm/lib/utils/log-file.js:51: fungsi load 41 baris
+npm/lib/utils/log-file.js:192: fungsi #cleanLogs 67 baris
+npm/lib/utils/oidc.js:21: fungsi oidc 152 baris
+npm/lib/utils/open-url.js:56: fungsi openUrlPrompt 33 baris
+npm/lib/utils/queryable.js:21: fungsi parseKeys 64 baris
+npm/lib/utils/queryable.js:24: fungsi parseSqBrackets 36 baris
+npm/lib/utils/queryable.js:86: fungsi getter 47 baris
+npm/lib/utils/queryable.js:134: fungsi setter 98 baris
+npm/lib/utils/queryable.js:139: fungsi setKeys 90 baris
+npm/lib/utils/reify-output.js:19: // TODO: output JSON if flatOptions.json is true
+npm/lib/utils/reify-output.js:20: fungsi reifyOutput 106 baris
+npm/lib/utils/reify-output.js:167: fungsi packagesChangedMessage 45 baris
+npm/lib/utils/sbom-cyclonedx.js:28: fungsi cyclonedxOutput 44 baris
+npm/lib/utils/sbom-cyclonedx.js:73: fungsi toCyclonedxItem 93 baris
+npm/lib/utils/sbom-spdx.js:22: fungsi spdxOutput 69 baris
+npm/lib/utils/sbom-spdx.js:92: fungsi toSpdxItem 52 baris
+npm/lib/utils/tar.js:10: fungsi logTar 38 baris
+npm/lib/utils/tar.js:49: fungsi getContents 59 baris
+npm/lib/utils/update-workspaces.js:5: fungsi updateWorkspaces 34 baris
+npm/lib/utils/verify-signatures.js:26: fungsi run 123 baris
+npm/lib/utils/verify-signatures.js:174: fungsi setKeys 41 baris
+npm/lib/utils/verify-signatures.js:250: fungsi getValidPackageInfo 36 baris
+npm/lib/utils/verify-signatures.js:309: fungsi getVerifiedInfo 66 baris

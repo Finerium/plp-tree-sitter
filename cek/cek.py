@@ -1,13 +1,25 @@
 import sys
 from pathlib import Path
+import tree_sitter_javascript as tsjavascript
 import tree_sitter_python as tspython
 from tree_sitter import Language, Parser, Query, QueryCursor
 
-PY = Language(tspython.language())
-parser = Parser(PY)
-
-Q_TODO = Query(PY, '((comment) @c (#match? @c "TODO|FIXME"))')
-Q_FUNGSI = Query(PY, "(function_definition name: (identifier) @nama) @fungsi")
+# Tiap bahasa cukup ganti grammar dan query fungsi. Node komentar di kedua
+# grammar sama-sama bernama comment, jadi query TODO dipakai bersama.
+POLA_TODO = '((comment) @c (#match? @c "TODO|FIXME"))'
+BAHASA = {
+    ".py": (tspython.language(), "(function_definition name: (identifier) @nama) @fungsi"),
+    ".js": (tsjavascript.language(), """[
+        (function_declaration name: (identifier) @nama)
+        (generator_function_declaration name: (identifier) @nama)
+        (method_definition name: (_) @nama)
+        (variable_declarator name: (identifier) @nama value: [(arrow_function) (function_expression)])
+    ] @fungsi"""),
+}
+SIAP = {}
+for ekstensi, (grammar, pola_fungsi) in BAHASA.items():
+    lang = Language(grammar)
+    SIAP[ekstensi] = (Parser(lang), Query(lang, POLA_TODO), Query(lang, pola_fungsi))
 BATAS_BARIS = 30
 
 def error_pertama(node):
@@ -21,6 +33,7 @@ def error_pertama(node):
 
 
 def cek_file(path):
+    parser, Q_TODO, Q_FUNGSI = SIAP[path.suffix]
     tree = parser.parse(path.read_bytes())
 
     # Fitur 1: komentar TODO/FIXME (sudah jadi)
@@ -45,6 +58,9 @@ def cek_file(path):
 
 LEWATI = {".git", ".venv", "venv", "node_modules", "__pycache__"}
 
-for path in sorted(Path(sys.argv[1]).rglob("*.py")):
-    if not LEWATI.intersection(path.parts):
+akar = Path(sys.argv[1])
+for path in sorted(akar.rglob("*")):
+    # cek bagian path relatif terhadap akar, supaya folder yang dicek boleh
+    # berada di dalam node_modules (misalnya kode npm sendiri)
+    if path.suffix in SIAP and path.is_file() and not LEWATI.intersection(path.relative_to(akar).parts):
         cek_file(path)

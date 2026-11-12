@@ -1,0 +1,12 @@
+$ python cek.py uji/
+uji/contoh.js:1: // TODO: ganti var dengan const
+uji/contoh.js:5: // FIXME: belum cek NaN
+uji/contoh.js:10: fungsi panjangPanah 33 baris
+uji/contoh.js:45: fungsi cetak 33 baris
+uji/panjang.py:1: fungsi panjang_35 35 baris
+uji/panjang.py:71: fungsi luar 34 baris
+uji/panjang.py:72: fungsi dalam 32 baris
+uji/rusak.js:1: sintaks rusak (MISSING)
+uji/rusak.py:5: sintaks rusak (ERROR)
+uji/todo.py:4: # TODO: ganti os.listdir dengan pathlib
+uji/todo.py:6: # FIXME: belum menangani folder kosong
