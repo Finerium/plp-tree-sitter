@@ -1,0 +1,6 @@
+tambah 2
+sapa 4
+kosong 0
+__init__ 2
+cetak 3
+dalam 1
