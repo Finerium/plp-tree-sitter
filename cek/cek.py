@@ -24,8 +24,9 @@ def cek_file(path):
     tree = parser.parse(path.read_bytes())
 
     # Fitur 1: komentar TODO/FIXME (sudah jadi)
-    for node in QueryCursor(Q_TODO).captures(tree.root_node).get("c", []):
-        print(f"{path}:{node.start_point[0] + 1}: {node.text.decode().strip()}")
+    todo = QueryCursor(Q_TODO).captures(tree.root_node).get("c", [])
+    for node in sorted(todo, key=lambda n: n.start_byte):
+        print(f"{path}:{node.start_point[0] + 1}: {node.text.decode(errors='replace').strip()}")
 
     # Fitur 2: fungsi lebih dari 30 baris, dihitung dari baris def sampai baris
     # terakhir body. Fungsi di dalam kelas dan fungsi bersarang ikut dihitung.
@@ -33,7 +34,7 @@ def cek_file(path):
         fungsi = cap["fungsi"][0]
         jumlah = fungsi.end_point[0] - fungsi.start_point[0] + 1
         if jumlah > BATAS_BARIS:
-            nama = cap["nama"][0].text.decode()
+            nama = cap["nama"][0].text.decode(errors="replace")
             print(f"{path}:{fungsi.start_point[0] + 1}: fungsi {nama} {jumlah} baris")
 
     # Fitur 3: file yang pohonnya mengandung error
@@ -42,5 +43,8 @@ def cek_file(path):
         jenis = "MISSING" if rusak.is_missing else "ERROR"
         print(f"{path}:{rusak.start_point[0] + 1}: sintaks rusak ({jenis})")
 
-for path in Path(sys.argv[1]).rglob("*.py"):
-    cek_file(path)
+LEWATI = {".git", ".venv", "venv", "node_modules", "__pycache__"}
+
+for path in sorted(Path(sys.argv[1]).rglob("*.py")):
+    if not LEWATI.intersection(path.parts):
+        cek_file(path)

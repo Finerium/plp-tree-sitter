@@ -1,0 +1,15 @@
+$ python cek.py <python3.14>/test | grep 'sintaks rusak'
+test/test_annotationlib.py:186: sintaks rusak (ERROR)
+test/test_compile.py:2360: sintaks rusak (ERROR)
+test/test_type_params.py:1425: sintaks rusak (ERROR)
+test/tokenizedata/badsyntax_3131.py:2: sintaks rusak (ERROR)
+
+$ python banding_error.py <python3.14>/test
+1131 file, error menurut tree-sitter 4, menurut ast.parse 4, sama 1
+  keduanya: tokenizedata/badsyntax_3131.py
+  tree-sitter saja: test_annotationlib.py
+  tree-sitter saja: test_compile.py
+  tree-sitter saja: test_type_params.py
+  ast.parse saja: tokenizedata/bad_coding.py
+  ast.parse saja: tokenizedata/bad_coding2.py
+  ast.parse saja: tokenizedata/badsyntax_pep3120.py

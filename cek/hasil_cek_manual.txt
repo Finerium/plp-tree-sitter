@@ -1,0 +1,10 @@
+$ python cek_manual.py repo-uji/requests
+== repo-uji/requests/tests/testserver/server.py
+  ast.parse: OK, tidak ada error sintaks
+  ast baris 139: fungsi __init__ 31 baris
+== repo-uji/requests/src/requests/structures.py
+  ast.parse: OK, tidak ada error sintaks
+
+seluruh repo: cek.py 63 temuan, tokenize+ast 63 temuan
+hanya di cek.py: tidak ada
+hanya di pembanding: tidak ada
