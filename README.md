@@ -11,6 +11,18 @@ Tugas awal tree-sitter dari Pak Joe Lian Min (Programming Language Pragmatics).
 | `cek/` | Tugas 6: `cek.py` dan README cara menjalankan |
 | `laporan.md` | Laporan singkat, kendala, catatan penggunaan AI |
 | `proposal-draft.md` | Draf proposal proyek (bagian 9) |
+| `proposal/` | Uji coba query aturan 1 dan 2 untuk proposal |
+
+## Ringkasan hasil
+
+| Tugas | Hasil |
+| --- | --- |
+| 1 | Pohon ditebak dulu (`t1_perkiraan.txt`), lalu dibandingkan dengan output; `ERROR` dari kode rusak |
+| 2 | `jelajah.py` dan versi `TreeCursor` identik pada `fa.py` 207 baris |
+| 3 | Query fungsi + parameter, `print`, import, docstring cocok dengan hitungan manual `contoh.py` |
+| 4 | `tree-sitter test` 10/10 lulus, `in_expression`, `contains_expression`, pengayaan `ke_sql.py` |
+| 5 | 26 token `contoh.filter` punya capture dan warna berbeda per jenis |
+| 6 | `cek.py` di psf/requests cocok 63/63 dengan pembanding tokenize + ast, plus dukungan JavaScript |
 
 ## Lingkungan
 
