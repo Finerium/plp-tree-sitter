@@ -1,0 +1,9 @@
+$ python parameter.py contoh.py parameter.scm
+tambah 2
+sapa 4
+kosong 0
+__init__ 2
+cetak 2
+dalam 1
+$ python parameter.py potongan/p4_pemisah.py parameter.scm   # def f(a, /, b, *, c)
+f 3
