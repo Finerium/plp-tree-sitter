@@ -1,0 +1,6 @@
+uji/rusak.py:5: sintaks rusak (ERROR)
+uji/todo.py:4: # TODO: ganti os.listdir dengan pathlib
+uji/todo.py:6: # FIXME: belum menangani folder kosong
+uji/panjang.py:1: fungsi panjang_35 35 baris
+uji/panjang.py:71: fungsi luar 34 baris
+uji/panjang.py:72: fungsi dalam 32 baris
