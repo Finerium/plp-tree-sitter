@@ -1,0 +1,2 @@
+uji/todo.py:4: # TODO: ganti os.listdir dengan pathlib
+uji/todo.py:6: # FIXME: belum menangani folder kosong
