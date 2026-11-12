@@ -1,0 +1,18 @@
+$ python q.py contoh.py print.scm
+@fn  baris 16: print
+@fn  baris 30: print
+@fn  baris 31: print
+@fn  baris 39: print
+@args  baris 16: (salam, nama)
+@args  baris 30: (self.nama)
+@args  baris 31: ("tebal" if tebal else "biasa")
+@args  baris 39: ("selesai")
+
+$ grep -n 'print(' contoh.py   # pembanding: regex ikut menangkap method, string, komentar
+16:    print(salam, nama)
+30:        print(self.nama)
+31:        print("tebal" if tebal else "biasa")
+39:print("selesai")
+40:log.print("bukan print bawaan")
+41:pesan = "print('ini string, bukan pemanggilan')"
+42:# print("ini komentar")
