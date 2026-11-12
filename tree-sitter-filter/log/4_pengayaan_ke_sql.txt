@@ -1,0 +1,3 @@
+$ python ke_sql.py
+self-check ke_sql: semua assert lulus
+$ python ke_sql.py 'status = "open" and (priority > 2 or owner = "budi")'
