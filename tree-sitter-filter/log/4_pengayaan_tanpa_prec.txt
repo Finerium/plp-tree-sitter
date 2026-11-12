@@ -1,0 +1,21 @@
+$ grep -c prec grammar.js
+0
+$ tree-sitter generate
+Error: Error when generating parser
+Caused by:
+    Unresolved conflict for symbol sequence:
+    
+      'not'  _expr  •  'and'  …
+    
+    Possible interpretations:
+    
+      1:  'not'  (and_expression  _expr  •  'and'  _expr)
+      2:  (not_expression  'not'  _expr)  •  'and'  …
+    
+    Possible resolutions:
+    
+      1:  Specify a higher precedence in `and_expression` than in the other rules.
+      2:  Specify a higher precedence in `not_expression` than in the other rules.
+      3:  Specify a left or right associativity in `not_expression`
+      4:  Add a conflict for these rules: `and_expression`, `not_expression`
+    
