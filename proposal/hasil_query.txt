@@ -1,0 +1,5 @@
+$ python coba_query.py contoh.js aturan1.scm
+contoh.js:2: `SELECT * FROM users WHERE id = ${req.params.id}`
+contoh.js:3: `SELECT * FROM Users WHERE email = '${req.body.email}'`
+$ python coba_query.py contoh.js aturan2.scm
+contoh.js:4: "SELECT * FROM users WHERE name = '" + req.query.name + "'"
