@@ -1,0 +1,8 @@
+$ python q.py contoh.py impor.scm
+@modul  baris 2: os
+@modul  baris 3: sys
+@modul  baris 3: json
+@modul  baris 4: pathlib
+@modul  baris 5: collections
+@modul  baris 6: .
+@modul  baris 7: os.path
