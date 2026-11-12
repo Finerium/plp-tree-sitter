@@ -1,0 +1,10 @@
+$ tree-sitter generate
+$ tree-sitter test
+  dasar:
+      1. ✓ satu perbandingan string
+      2. ✓ operator perbandingan dengan angka
+      3. ✓ and berantai mengelompok ke kiri
+      4. ✓ and lebih kuat dari or
+      5. ✓ kurung mengalahkan prioritas
+      6. ✓ not lebih kuat dari and, nilai boolean
+Total parses: 6; successful parses: 6; failed parses: 0; success percentage: 100.00%; average speed: 1837 bytes/ms
