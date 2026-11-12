@@ -105,3 +105,61 @@ not archived = true and active = false
     right: (comparison
       field: (identifier)
       value: (boolean))))
+
+==================
+in dengan tiga nilai
+==================
+
+status in ("open", "pending", "hold")
+
+---
+
+(query
+  (in_expression
+    field: (identifier)
+    value: (string)
+    value: (string)
+    value: (string)))
+
+==================
+contains untuk pencarian teks
+==================
+
+title contains "invoice" and customer.city = "Bandung"
+
+---
+
+(query
+  (and_expression
+    left: (contains_expression
+      field: (identifier)
+      value: (string))
+    right: (comparison
+      field: (identifier)
+      value: (string))))
+
+==================
+identifier berawalan kata kunci tetap identifier
+==================
+
+inbox = 1 or android != 0
+
+---
+
+(query
+  (or_expression
+    left: (comparison
+      field: (identifier)
+      value: (number))
+    right: (comparison
+      field: (identifier)
+      value: (number))))
+
+==================
+contains dengan angka ditolak
+:error
+==================
+
+title contains 5
+
+---

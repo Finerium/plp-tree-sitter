@@ -1,0 +1,21 @@
+$ tree-sitter generate
+$ tree-sitter parse contoh.filter
+(query [0, 0] - [1, 0]
+  (and_expression [0, 0] - [0, 66]
+    left: (in_expression [0, 0] - [0, 37]
+      field: (identifier [0, 0] - [0, 6])
+      value: (string [0, 11] - [0, 17])
+      value: (string [0, 19] - [0, 28])
+      value: (string [0, 30] - [0, 36]))
+    right: (contains_expression [0, 42] - [0, 66]
+      field: (identifier [0, 42] - [0, 47])
+      value: (string [0, 57] - [0, 66]))))
+$ tree-sitter parse uji_word.filter
+(query [0, 0] - [1, 0]
+  (and_expression [0, 0] - [0, 27]
+    left: (comparison [0, 0] - [0, 9]
+      field: (identifier [0, 0] - [0, 5])
+      value: (number [0, 8] - [0, 9]))
+    right: (comparison [0, 14] - [0, 27]
+      field: (identifier [0, 14] - [0, 23])
+      value: (number [0, 26] - [0, 27]))))

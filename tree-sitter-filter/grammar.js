@@ -4,11 +4,23 @@ export default grammar({
   word: $ => $.identifier,
   rules: {
     query: $ => $._expr,
-    _expr: $ => choice($.comparison, $.and_expression, $.or_expression, $.not_expression, $.parenthesized),
+    _expr: $ => choice($.comparison, $.in_expression, $.contains_expression, $.and_expression, $.or_expression, $.not_expression, $.parenthesized),
     comparison: $ => seq(
       field('field', $.identifier),
       field('operator', choice('=', '!=', '>', '<', '>=', '<=')),
       field('value', $._value),
+    ),
+    // status in ("open", "pending")
+    in_expression: $ => seq(
+      field('field', $.identifier),
+      'in',
+      '(', field('value', $._value), repeat(seq(',', field('value', $._value))), ')',
+    ),
+    // title contains "invoice", pencarian teks jadi nilainya hanya string
+    contains_expression: $ => seq(
+      field('field', $.identifier),
+      'contains',
+      field('value', $.string),
     ),
     and_expression: $ => prec.left(2, seq(field('left', $._expr), 'and', field('right', $._expr))),
     or_expression: $ => prec.left(1, seq(field('left', $._expr), 'or', field('right', $._expr))),
