@@ -17,6 +17,10 @@
         {
           "type": "SYMBOL",
           "name": "and_expression"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "or_expression"
         }
       ]
     },
@@ -64,7 +68,7 @@
     },
     "and_expression": {
       "type": "PREC_LEFT",
-      "value": 0,
+      "value": 2,
       "content": {
         "type": "SEQ",
         "members": [
@@ -75,6 +79,27 @@
           {
             "type": "STRING",
             "value": "and"
+          },
+          {
+            "type": "SYMBOL",
+            "name": "_expr"
+          }
+        ]
+      }
+    },
+    "or_expression": {
+      "type": "PREC_LEFT",
+      "value": 1,
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "SYMBOL",
+            "name": "_expr"
+          },
+          {
+            "type": "STRING",
+            "value": "or"
           },
           {
             "type": "SYMBOL",

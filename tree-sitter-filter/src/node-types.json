@@ -14,6 +14,10 @@
         {
           "type": "comparison",
           "named": true
+        },
+        {
+          "type": "or_expression",
+          "named": true
         }
       ]
     }
@@ -42,6 +46,29 @@
     }
   },
   {
+    "type": "or_expression",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "and_expression",
+          "named": true
+        },
+        {
+          "type": "comparison",
+          "named": true
+        },
+        {
+          "type": "or_expression",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "query",
     "named": true,
     "root": true,
@@ -56,6 +83,10 @@
         },
         {
           "type": "comparison",
+          "named": true
+        },
+        {
+          "type": "or_expression",
           "named": true
         }
       ]
@@ -96,6 +127,10 @@
   {
     "type": "number",
     "named": true
+  },
+  {
+    "type": "or",
+    "named": false
   },
   {
     "type": "string",

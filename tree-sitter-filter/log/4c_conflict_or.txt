@@ -1,0 +1,19 @@
+$ tree-sitter generate
+Error: Error when generating parser
+Caused by:
+    Unresolved conflict for symbol sequence:
+    
+      _expr  'or'  _expr  •  'and'  …
+    
+    Possible interpretations:
+    
+      1:  (or_expression  _expr  'or'  _expr)  •  'and'  …
+      2:  _expr  'or'  (and_expression  _expr  •  'and'  _expr)  (precedence: 0, associativity: Left)
+    
+    Possible resolutions:
+    
+      1:  Specify a higher precedence in `and_expression` than in the other rules.
+      2:  Specify a higher precedence in `or_expression` than in the other rules.
+      3:  Specify a left or right associativity in `or_expression`
+      4:  Add a conflict for these rules: `and_expression`, `or_expression`
+    
