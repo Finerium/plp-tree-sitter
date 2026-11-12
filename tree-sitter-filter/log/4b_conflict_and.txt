@@ -1,0 +1,27 @@
+$ tree-sitter generate
+Error: Error when generating parser
+Caused by:
+    Unresolved conflict for symbol sequence:
+    
+      _expr  'and'  _expr  •  'and'  …
+    
+    Possible interpretations:
+    
+      1:  (and_expression  _expr  'and'  _expr)  •  'and'  …
+      2:  _expr  'and'  (and_expression  _expr  •  'and'  _expr)
+    
+    Possible resolutions:
+    
+      1:  Specify a left or right associativity in `and_expression`
+      2:  Add a conflict for these rules: `and_expression`
+    
+$ tree-sitter parse contoh.filter
+(query [0, 0] - [1, 0]
+  (ERROR [0, 0] - [0, 9]
+    (identifier [0, 0] - [0, 1])
+    (number [0, 4] - [0, 5])
+    (identifier [0, 6] - [0, 9]))
+  (comparison [0, 10] - [0, 15]
+    (identifier [0, 10] - [0, 11])
+    (number [0, 14] - [0, 15])))
+contoh.filter	Parse:    0.04 ms	   428 bytes/ms	(ERROR [0, 0] - [0, 9])

@@ -1,0 +1,21 @@
+$ tree-sitter generate
+$ tree-sitter parse contoh.filter
+(query [0, 0] - [1, 0]
+  (and_expression [0, 0] - [0, 15]
+    (comparison [0, 0] - [0, 5]
+      (identifier [0, 0] - [0, 1])
+      (number [0, 4] - [0, 5]))
+    (comparison [0, 10] - [0, 15]
+      (identifier [0, 10] - [0, 11])
+      (number [0, 14] - [0, 15]))))
+$ echo 'andi = 1' > uji_word.filter && tree-sitter parse uji_word.filter
+(query [0, 0] - [1, 0]
+  (comparison [0, 0] - [0, 8]
+    (identifier [0, 0] - [0, 4])
+    (number [0, 7] - [0, 8])))
+$ tree-sitter test
+  dasar:
+      1. ✓ satu perbandingan string
+      2. ✓ operator perbandingan dengan angka
+      3. ✓ and berantai mengelompok ke kiri
+Total parses: 3; successful parses: 3; failed parses: 0; success percentage: 100.00%; average speed: 3294 bytes/ms
